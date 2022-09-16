@@ -6,7 +6,8 @@ NODE_VERSION:=v16.13.2
 OS:=$(shell uname -s | tr ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz)
 ARCH:=$(shell uname -i | sed 's/x86_64/x64/')
 
-APP_PORT=8200
+APP_PORT:=8200
+BACKEND_PORT:=8300
 
 #
 # DOCKER DEVELOPPEMENT ENVIRONMENT
@@ -28,6 +29,7 @@ dev: dev-container
 	sudo docker run -it --rm \
                 -e TERM \
                 -p ${APP_PORT}:8080 \
+                -p ${BACKEND_PORT}:8300 \
 		--user "$$(id -u):$$(id -g)" \
 		--mount type=bind,src="$${HOME}",dst="$${HOME}" \
 		"${PROJECT}/dev" \

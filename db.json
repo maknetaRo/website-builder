@@ -1,0 +1,26 @@
+{
+  "pages": [
+    {
+      "id": 123,
+      "elements": [ 10, 20, 30 ]
+    }
+  ],
+  "elements": [
+    {
+      "id": 10,
+      "type": "heading",
+      "level": 1,
+      "content": "This is a heading"
+    },
+    {
+      "id": 20,
+      "type": "text",
+      "content": "This is a text box"
+    },
+    {
+      "id": 30,
+      "type": "text",
+      "content": "This is another text box"
+    }
+  ]
+}
