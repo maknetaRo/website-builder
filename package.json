@@ -10,8 +10,11 @@
     "backend": "json-server --host 0.0.0.0 --port \"${BACKEND_PORT:-8300}\" --watch db.json"
   },
   "dependencies": {
+    "autoprefixer": "^10",
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
+    "postcss": "^8",
+    "tailwindcss": "^3",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
   },
@@ -32,7 +35,8 @@
     "eslint-plugin-vue": "^8.0.3",
     "jest": "^27.0.5",
     "json-server": "^0.17.0",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "vue-cli-plugin-tailwind": "~3.0.0"
   },
   "_id": "website-builder@0.1.0",
   "readme": "ERROR: No README data found!"
