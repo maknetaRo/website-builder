@@ -15,8 +15,6 @@
 import axios from "axios";
 import { BACKEND_SERVER } from "@/config.js";
 
-console.log(BACKEND_SERVER);
-
 export default {
   name: "PageViewer",
   props: {
@@ -36,7 +34,6 @@ export default {
     */
     let response = await axios.get(`${BACKEND_SERVER}/pages/${this.pageId}`);
     const elementIds = response.data.elements;
-
     for (const id of elementIds) {
       response = await axios.get(`${BACKEND_SERVER}/elements/${id}`);
       this.elements.push(response.data);
