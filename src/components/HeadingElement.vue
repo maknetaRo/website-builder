@@ -1,5 +1,5 @@
 <template>
-  <h1>
+  <h1 class="text-4xl">
     {{ content }}
   </h1>
 </template>
