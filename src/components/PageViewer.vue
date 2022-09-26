@@ -2,6 +2,8 @@
 import axios from "axios";
 import { BACKEND_SERVER } from "@/config.js";
 
+import latch from "@/utils/latch.js";
+
 import { h } from "vue";
 import TextElement from "@/components/TextElement.vue";
 import HeadingElement from "@/components/HeadingElement.vue";
@@ -26,12 +28,12 @@ export default {
 
   data() {
     return {
+      loaded: latch(),
       elements: [],
     };
   },
 
   async mounted() {
-    console.log("MOUNTED");
     /*
       Load the page and its elements from the backend
     */
@@ -45,11 +47,10 @@ export default {
     }
 
     this.elements = theElements;
-    console.log("MOUNTED DONE");
+    this.loaded(true);
   },
 
   render() {
-    console.log("RENDER");
     const content = this.elements.map((item) => {
       // the exact type is obtained from `item.type`;
       // fallback to TextElement if the type is unknown.
