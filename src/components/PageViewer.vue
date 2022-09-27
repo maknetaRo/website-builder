@@ -56,6 +56,7 @@ export default {
       // fallback to TextElement if the type is unknown.
       return h(types.get(item.type) || TextElement, {
         content: item.content || "",
+        id: item.id,
       });
     });
 

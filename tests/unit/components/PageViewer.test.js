@@ -30,4 +30,24 @@ describe("PageViewer", () => {
     await wrapper.vm.loaded();
     expect(wrapper.vm.elements).toEqual(expected);
   });
+
+  it("creates an HeadingElement for the elements of type heading", async () => {
+    const wrapper = shallowMount(PageViewer, {
+      props: { pageId: 123 },
+    });
+    await wrapper.vm.loaded();
+
+    const child = wrapper.getComponent(`[id="10"]`);
+    expect(child.vm.$options.name).toEqual("HeadingElement");
+  });
+
+  it("creates a TextElement for the elements of type text", async () => {
+    const wrapper = shallowMount(PageViewer, {
+      props: { pageId: 123 },
+    });
+    await wrapper.vm.loaded();
+
+    const child = wrapper.getComponent(`[id="20"]`);
+    expect(child.vm.$options.name).toEqual("TextElement");
+  });
 });
