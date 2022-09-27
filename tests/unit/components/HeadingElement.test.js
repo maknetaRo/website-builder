@@ -6,6 +6,7 @@ describe("HeadingElement", () => {
     return mount(HeadingElement, {
       props: {
         id: 0,
+        level: 1,
         content: "default content",
         ...props,
       },
@@ -31,5 +32,17 @@ describe("HeadingElement", () => {
     });
 
     expect(wrapper.text()).toBe(theText);
+  });
+
+  it("wraps heading level 1 in an h1 HTML element", async () => {
+    const theText = "This is my plain-text content";
+    const wrapper = createElement({
+      level: 1,
+      content: theText,
+    });
+
+    const headings = wrapper.findAll("h1");
+    expect(headings.length).toBe(1);
+    expect(headings[0].text()).toBe(theText);
   });
 });

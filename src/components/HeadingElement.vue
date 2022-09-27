@@ -18,6 +18,10 @@ export default {
       type: Number,
       required: true,
     },
+    level: {
+      type: Number /* 1 through 6 */,
+      required: true,
+    },
   },
 };
 </script>
